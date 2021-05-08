@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 import { useAuthState, useAuthDispatch } from '../context/auth'
 
-import RedditLogo from '../images/reddit.svg'
+import RedditLogo from '../../public/reddit.svg'
 import { Sub } from '../types'
 import { useRouter } from 'next/router'
 
@@ -90,7 +90,7 @@ const Navbar: React.FC = () => {
                 onClick={() => goToSub(sub.name)}
               >
                 <Image
-                  src={sub.imageUrl}
+                  src="/reddit.svg"
                   className="rounded-full"
                   alt="Sub"
                   height={(8 * 16) / 4}

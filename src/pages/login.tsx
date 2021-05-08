@@ -1,40 +1,40 @@
-import { FormEvent, useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Axios from 'axios'
-import { useRouter } from 'next/router'
+import { FormEvent, useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import Axios from "axios";
+import { useRouter } from "next/router";
 
-import { useAuthDispatch, useAuthState } from '../context/auth'
+import { useAuthDispatch, useAuthState } from "../context/auth";
 
-import InputGroup from '../components/InputGroup'
+import InputGroup from "../components/InputGroup";
 
 export default function Login() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [errors, setErrors] = useState<any>({})
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<any>({});
 
-  const dispatch = useAuthDispatch()
-  const { authenticated } = useAuthState()
+  const dispatch = useAuthDispatch();
+  const { authenticated } = useAuthState();
 
-  const router = useRouter()
-  if (authenticated) router.push('/')
+  const router = useRouter();
+  if (authenticated) router.push("/");
 
   const submitForm = async (event: FormEvent) => {
-    event.preventDefault()
+    event.preventDefault();
 
     try {
-      const res = await Axios.post('/auth/login', {
-        username,
+      const res = await Axios.post("/auth/login", {
+        email,
         password,
-      })
+      });
 
-      dispatch('LOGIN', res.data)
+      dispatch("LOGIN", res.data);
 
-      router.back()
+      router.back();
     } catch (err) {
-      setErrors(err.response.data)
+      setErrors(err.response.data);
     }
-  }
+  };
 
   return (
     <div className="flex bg-white">
@@ -58,10 +58,10 @@ export default function Login() {
             <InputGroup
               className="mb-2"
               type="text"
-              value={username}
-              setValue={setUsername}
-              placeholder="USERNAME"
-              error={errors.username}
+              value={email}
+              setValue={setEmail}
+              placeholder="EMAIL"
+              error={errors.email}
             />
             <InputGroup
               className="mb-4"
@@ -85,5 +85,5 @@ export default function Login() {
         </div>
       </div>
     </div>
-  )
+  );
 }

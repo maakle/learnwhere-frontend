@@ -17,7 +17,7 @@ export default function Home() {
   const [observedPost, setObservedPost] = useState('')
 
   // const { data: posts } = useSWR<Post[]>('/posts')
-  const { data: topSubs } = useSWR<Sub[]>('/misc/top-subs')
+  // const { data: topSubs } = useSWR<Sub[]>('/misc/top-subs')
 
   const description =
     "Reddit is a network of communities based on people's interests. Find communities you're interested in, and become part of an online community!"
@@ -97,7 +97,7 @@ export default function Home() {
               </p>
             </div>
             <div>
-              {topSubs?.map((sub) => (
+              {/* {topSubs?.map((sub) => (
                 <div
                   key={sub.name}
                   className="flex items-center px-4 py-2 text-xs border-b"
@@ -120,7 +120,7 @@ export default function Home() {
                   </Link>
                   <p className="ml-auto font-med">{sub.postCount}</p>
                 </div>
-              ))}
+              ))} */}
             </div>
             {authenticated && (
               <div className="p-4 border-t-2">

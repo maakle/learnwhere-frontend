@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     async function loadUser() {
       try {
-        const res = await Axios.get('/auth/me')
+        const res = await Axios.get('/auth')
         dispatch('LOGIN', res.data)
       } catch (err) {
         console.log(err)
