@@ -1,11 +1,11 @@
-import { FormEvent, useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import Axios from "axios";
-import { useRouter } from "next/router";
+import { FormEvent, useState } from 'react';
 
-import InputGroup from "../components/InputGroup";
-import { useAuthState } from "../context/auth";
+import Axios from 'axios';
+import Head from 'next/head';
+import InputGroup from '../components/InputGroup';
+import Link from 'next/link';
+import { useAuthState } from '../context/auth';
+import { useRouter } from 'next/router';
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -33,7 +33,8 @@ export default function Register() {
         username,
       });
 
-      router.push("/login");
+      // Referesh to be logged in & forwarded to index page
+      window.location.reload();
     } catch (err) {
       setErrors(err.response);
     }

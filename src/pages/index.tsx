@@ -1,15 +1,14 @@
-import Head from 'next/head'
-import { Fragment, useEffect, useState } from 'react'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import useSWR, { useSWRInfinite } from 'swr'
-import Image from 'next/image'
+import { Fragment, useEffect, useState } from 'react';
+import { Post, Sub } from '../types';
+import useSWR, { useSWRInfinite } from 'swr';
 
-import { Post, Sub } from '../types'
-
-import PostCard from '../components/PostCard'
-import Link from 'next/link'
-import { useAuthState } from '../context/auth'
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import PostCard from '../components/PostCard';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import { useAuthState } from '../context/auth';
 
 dayjs.extend(relativeTime)
 
@@ -17,7 +16,7 @@ export default function Home() {
   const [observedPost, setObservedPost] = useState('')
 
   // const { data: posts } = useSWR<Post[]>('/posts')
-  // const { data: topSubs } = useSWR<Sub[]>('/misc/top-subs')
+  const { data: topSubs } = useSWR<Sub[]>('/misc/top-subs')
 
   const description =
     "Reddit is a network of communities based on people's interests. Find communities you're interested in, and become part of an online community!"
@@ -97,7 +96,7 @@ export default function Home() {
               </p>
             </div>
             <div>
-              {/* {topSubs?.map((sub) => (
+              {topSubs?.map((sub) => (
                 <div
                   key={sub.name}
                   className="flex items-center px-4 py-2 text-xs border-b"
@@ -120,7 +119,7 @@ export default function Home() {
                   </Link>
                   <p className="ml-auto font-med">{sub.postCount}</p>
                 </div>
-              ))} */}
+              ))}
             </div>
             {authenticated && (
               <div className="p-4 border-t-2">

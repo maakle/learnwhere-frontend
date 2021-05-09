@@ -1,13 +1,12 @@
-import Axios from 'axios'
-import Link from 'next/link'
-import { Fragment, useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Fragment, useEffect, useState } from 'react';
+import { useAuthDispatch, useAuthState } from '../context/auth';
 
-import { useAuthState, useAuthDispatch } from '../context/auth'
-
-import RedditLogo from '../../public/reddit.svg'
-import { Sub } from '../types'
-import { useRouter } from 'next/router'
+import Axios from 'axios';
+import Image from 'next/image';
+import Link from 'next/link';
+import RedditLogo from '../../public/reddit.svg';
+import { Sub } from '../types';
+import { useRouter } from 'next/router';
 
 const Navbar: React.FC = () => {
   const [name, setName] = useState('')
@@ -20,7 +19,7 @@ const Navbar: React.FC = () => {
   const router = useRouter()
 
   const logout = () => {
-    Axios.get('/auth/logout')
+    Axios.post('/auth/logout')
       .then(() => {
         dispatch('LOGOUT')
         window.location.reload()
