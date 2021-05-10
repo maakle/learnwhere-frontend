@@ -1,18 +1,18 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import useSWR from 'swr'
-import Image from 'next/image'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import classNames from 'classnames'
+import { Comment, Post } from '../../../../types';
+import { FormEvent, useEffect, useState } from 'react';
 
-import { Post, Comment } from '../../../../types'
-import Sidebar from '../../../../components/Sidebar'
-import Axios from 'axios'
-import { useAuthState } from '../../../../context/auth'
-import ActionButton from '../../../../components/ActionButton'
-import { FormEvent, useEffect, useState } from 'react'
+import ActionButton from '../../../../components/ActionButton';
+import Axios from 'axios';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import Sidebar from '../../../../components/Sidebar';
+import classNames from 'classnames';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import { useAuthState } from '../../../../context/auth';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 dayjs.extend(relativeTime)
 
@@ -56,7 +56,7 @@ export default function PostPage() {
       value = 0
 
     try {
-      await Axios.post('/misc/vote', {
+      await Axios.post('/posts/vote', {
         identifier,
         slug,
         commentIdentifier: comment?.identifier,

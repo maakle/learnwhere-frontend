@@ -1,11 +1,12 @@
-import Axios from 'axios'
-import { GetServerSideProps } from 'next'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { FormEvent, useState } from 'react'
-import useSWR from 'swr'
-import Sidebar from '../../../components/Sidebar'
-import { Post, Sub } from '../../../types'
+import { FormEvent, useState } from 'react';
+import { Post, Sub } from '../../../types';
+
+import Axios from 'axios';
+import { GetServerSideProps } from 'next';
+import Head from 'next/head';
+import Sidebar from '../../../components/Sidebar';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 export default function submit() {
   const [title, setTitle] = useState('')
@@ -23,7 +24,7 @@ export default function submit() {
     if (title.trim() === '') return
 
     try {
-      const { data: post } = await Axios.post<Post>('/posts', {
+      const { data: post } = await Axios.post<Post>('/posts/create', {
         title: title.trim(),
         body,
         sub: sub.name,

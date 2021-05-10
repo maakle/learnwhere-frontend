@@ -1,9 +1,10 @@
-import Axios from 'axios'
-import { GetServerSideProps } from 'next'
-import Head from 'next/head'
-import { FormEvent, useState } from 'react'
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
+import { FormEvent, useState } from 'react';
+
+import Axios from 'axios';
+import { GetServerSideProps } from 'next';
+import Head from 'next/head';
+import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 export default function create() {
   const [name, setName] = useState('')
@@ -18,7 +19,7 @@ export default function create() {
     event.preventDefault()
 
     try {
-      const res = await Axios.post('/subs', { name, title, description })
+      const res = await Axios.post('/subs/create', { name, title, description })
 
       router.push(`/r/${res.data.name}`)
     } catch (err) {

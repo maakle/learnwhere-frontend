@@ -1,13 +1,12 @@
-import Link from 'next/link'
-import Axios from 'axios'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import classNames from 'classnames'
-
-import { Post } from '../types'
-import ActionButton from './ActionButton'
-import { useAuthState } from '../context/auth'
-import { useRouter } from 'next/router'
+import ActionButton from './ActionButton';
+import Axios from 'axios';
+import Link from 'next/link';
+import { Post } from '../types';
+import classNames from 'classnames';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import { useAuthState } from '../context/auth';
+import { useRouter } from 'next/router';
 
 dayjs.extend(relativeTime)
 
@@ -45,7 +44,7 @@ export default function PostCard({
     if (value === userVote) value = 0
 
     try {
-      const res = await Axios.post('/misc/vote', {
+      const res = await Axios.post('/posts/vote', {
         identifier,
         slug,
         value,
