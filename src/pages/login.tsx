@@ -1,12 +1,11 @@
-import { FormEvent, useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import Axios from "axios";
-import { useRouter } from "next/router";
+import { FormEvent, useState } from 'react';
+import { useAuthDispatch, useAuthState } from '../context/auth';
 
-import { useAuthDispatch, useAuthState } from "../context/auth";
-
-import InputGroup from "../components/InputGroup";
+import Axios from 'axios';
+import Head from 'next/head';
+import InputGroup from '../components/InputGroup';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Login() {
   const [email, setEmail] = useState("");

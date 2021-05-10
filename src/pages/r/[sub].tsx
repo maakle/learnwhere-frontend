@@ -1,15 +1,15 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { ChangeEvent, createRef, Fragment, useEffect, useState } from 'react'
-import useSWR from 'swr'
-import PostCard from '../../components/PostCard'
-import Image from 'next/image'
-import classNames from 'classnames'
+import { ChangeEvent, Fragment, createRef, useEffect, useState } from 'react';
 
-import { Sub } from '../../types'
-import { useAuthState } from '../../context/auth'
-import Axios from 'axios'
-import Sidebar from '../../components/Sidebar'
+import Axios from 'axios';
+import Head from 'next/head';
+import Image from 'next/image';
+import PostCard from '../../components/PostCard';
+import Sidebar from '../../components/Sidebar';
+import { Sub } from '../../types';
+import classNames from 'classnames';
+import { useAuthState } from '../../context/auth';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 export default function SubPage() {
   // Local state

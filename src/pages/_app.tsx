@@ -1,14 +1,12 @@
-import { AppProps } from 'next/app'
-import Axios from 'axios'
-import { useRouter } from 'next/router'
-import { SWRConfig } from 'swr'
+import '../styles/icons.css';
+import '../styles/tailwind.css';
 
-import { AuthProvider } from '../context/auth'
-
-import '../styles/tailwind.css'
-import '../styles/icons.css'
-
-import Navbar from '../components/Navbar'
+import { AppProps } from 'next/app';
+import { AuthProvider } from '../context/auth';
+import Axios from 'axios';
+import Navbar from '../components/Navbar';
+import { SWRConfig } from 'swr';
+import { useRouter } from 'next/router';
 
 Axios.defaults.baseURL = process.env.NEXT_PUBLIC_SERVER_BASE_URL
 Axios.defaults.withCredentials = true
