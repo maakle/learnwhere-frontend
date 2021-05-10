@@ -40,7 +40,7 @@ export default function PostPage() {
   useEffect(() => {
     if (!post) return
     let desc = post.body || post.title
-    desc = desc.substring(0, 158).concat('..') // Hello world..
+    desc = desc.substring(0, 158).concat('..') 
     setDescription(desc)
   }, [post])
 
@@ -56,7 +56,7 @@ export default function PostPage() {
       value = 0
 
     try {
-      await Axios.post('/posts/vote', {
+      await Axios.post('/users/vote', {
         identifier,
         slug,
         commentIdentifier: comment?.identifier,

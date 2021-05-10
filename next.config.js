@@ -16,7 +16,7 @@ module.exports = {
     // limit of 25 imageSizes values
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // limit of 50 domains values
-    domains: [],
+    domains: ['www.gravatar.com', process.env.NEXT_PUBLIC_SERVER_BASE_URL],
     path: "/_next/image",
     // loader can be 'default', 'imgix', 'cloudinary', or 'akamai'
     loader: "default",
